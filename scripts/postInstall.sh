@@ -15,8 +15,6 @@ curl -X POST "https://$WEBUI_URL/api/v1/auths/signup" \
 }'
 
 sed -i "s/^ENABLE_SIGNUP=True/ENABLE_SIGNUP=False/" ./.env
-
-docker compose down;
-
+docker compose down; sleep 5s;
 docker compose up -d;
 sleep 15s;

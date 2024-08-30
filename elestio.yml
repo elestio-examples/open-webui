@@ -29,7 +29,7 @@ environments:
   - key: "OPENAI_API_KEY"
     value: ""
   - key: "WEBUI_NAME"
-    value: "Open WebUI"
+    value: "Open-WebUI"
   - key: "WEBUI_URL"
     value: "[CI_CD_DOMAIN]"
   - key: "SAFE_MODE"
