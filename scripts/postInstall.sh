@@ -3,7 +3,7 @@ set -o allexport; source .env; set +o allexport;
 
 #wait until the server is ready
 echo "Waiting for software to be ready ..."
-sleep 20s;
+sleep 30s;
 
 curl -X POST "https://$WEBUI_URL/api/v1/auths/signup" \
 -H "Content-Type: application/json" \
