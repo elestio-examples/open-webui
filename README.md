@@ -4,7 +4,7 @@
 
 Deploy Open WebUI with CI/CD on Elestio
 
-<img src="open-webui.gif" style='width: 30%;'/>
+<img src="open-webui.gif" style='width: 100%;'/>
 <br/>
 <br/>
 
