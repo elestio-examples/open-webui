@@ -17,7 +17,7 @@ environments:
   - key: "ENV"
     value: "prod"
   - key: "ENABLE_SIGNUP"
-    value: "true"
+    value: "True"
   - key: "SCARF_NO_ANALYTICS"
     value: "true"
   - key: "DO_NOT_TRACK"
