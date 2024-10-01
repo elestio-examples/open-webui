@@ -3,18 +3,21 @@ set -o allexport; source .env; set +o allexport;
 
 #wait until the server is ready
 echo "Waiting for software to be ready ..."
-sleep 30s;
+sleep 60s;
 
-curl -X POST "https://$WEBUI_URL/api/v1/auths/signup" \
--H "Content-Type: application/json" \
--d '{
-    "name": "Admin",
-    "email": "'"$ADMIN_EMAIL"'",
-    "password": "'"$ADMIN_PASSWORD"'",
-    "profile_image_url": "data:image/png;base64,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"
-}'
+target=$(docker-compose port open-webui 8080)
+
+curl http://${target}/api/v1/auths/signup \
+  -H 'accept: */*' \
+  -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6,zh-CN;q=0.5,zh;q=0.4,ja;q=0.3' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'pragma: no-cache' \
+  -H 'priority: u=1, i' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36' \
+  --data-raw '{"name":"admin","email":"'${ADMIN_EMAIL}'","password":"'${ADMIN_PASSWORD}'","profile_image_url":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAABJFJREFUeF7tnF1oFFccxc/M7GwmMdZajVWpvkSptR9BNEIqVSvVUrQgpQ/VF0FEUYoUqvStVV9EFPRBLJQgCEVfxA9saRtF+4H4kIIExNbSKGihrSIaTZPZzyk7Y0NmYtzNrppzy9m3Ze/snjm/Ofd///eGWPfbnwugF40DloDQsAiFCAgXDwEh4yEgAsLmAJke1RABIXOATI4SIiBkDpDJUUIEhMwBMjlKiICQOUAmRwkREDIHyOQoIQJC5gCZHCVEQMgcIJOjhAgImQNkcpQQASFzgEyOEiIgZA6QyVFCBITMATI5SoiAkDlAJkcJERAyB8jkGJ0Qb+mXSE1/Z8DSIPcPsp3bkPvlIJnNlcsxFogzaR68N9thNU6L3W3+Rgf8jlWVO0A20lgg6dZPkX5lE2C7MUuD/lvwf/wQhT/OkFldmRxjgdQv/wrO5LbwLoP+m7DSzwCOBwRF5K4cQub8lsocIBtlJJBU8/uoa9sFq+7Z0M789W/hTGyB1TAlfF+88yv6T72NINdLZnd5OUYCqVuwB+6LawDLBgoZZLv2wpn8OpypC6PEGFzcjQNij2uGt/Qw7HEzIvP7/oT/w0Y4TXORnrM1mrZKqTG0uBsHxJ29DunWz2ClGkLjC39dQP/XK5BcdZla3I0D4i07gtS0ZdFkXMwhe+kAsp07wrexvsTQ4m4UEGfqG/AWfT5QvIPeG/DPrUPh5s8hEPeltUi3boPljol49fwO//RqFHu6y1dTkhFGAUn2Hsk6kawvKPjIXtyNbNc+ErvLyzAKSMPKs7AntETFPN+HbOd25C63x+4ytgIzsLgbAyTZeww3HSXHmVbcjQHiLf4Cqeb3Sv8NpJQP5H47jMxPmx86B9Sv+AbO8/Ojzwwr7kYAGdJ7ZO4ic+ET5LuPPhRIstaYVNyNAJJu+SjW9BVvd6HvxJJhK+SQnWCDirsRQB7VewxHJXbNoAay/DpndEfQA3FeeAvewv2w6ptqcirI3EHm/MfIXztZ0/c86YvpgdTN3wH35Q2AnarNC0OKOzUQy21E/fJTsCe8VhuMB1ebUNypgbgzVyHdthOWOzZawfb9HW61B9meigDZY6bAfXXzwLmJCZ07NZB471Hdlvrg7r5E8b/d4YqIjsIgWiB20xx4Sw7Cbpwe2VLl0jXZkwRlephRYBD7SVogQ3qP3uvwz65F8dbFEXmW3CEudfn57mPwv18/ou95WoNpgQz+I4aSGfmrx8Ot9mpeyZ6keO8q/I4PKLflKYEke49az8iTp4zVTn/VPAwjvYYSSHILvdbl6pBzEuLiTgck7D3e/Q72+FkPHq5H7+xW+gQmIbMWdzogyWPYx2Vc8pyEtbjTAan0if+/jhMQMrICIiBkDpDJUUIEhMwBMjlKiICQOUAmRwkREDIHyOQoIQJC5gCZHCVEQMgcIJOjhAgImQNkcpQQASFzgEyOEiIgZA6QyVFCBITMATI5SoiAkDlAJkcJERAyB8jkKCECQuYAmRwlREDIHCCTo4QICJkDZHKUEAEhc4BMjhIiIGQOkMlRQgSEzAEyOUoIGZB/Abe4lAMJb2YBAAAAAElFTkSuQmCC"}'
 
 sed -i "s/^ENABLE_SIGNUP=True/ENABLE_SIGNUP=False/" ./.env
 docker compose down;
-ENABLE_SIGNUP='False' docker compose up -d;
-sleep 15s;
+docker compose up -d;
+sleep 30s;
