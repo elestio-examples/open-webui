@@ -27,7 +27,7 @@ After Login, In the sidebar, on the bottom left, click your profile icon. From t
 
 ![](./open-webadmin.png)
 
-Go to models on the `Admin Panel dashboard`. Under models, add the names of the Olama models you want to use. You can view the list of Olama models here: https://ollama.com/library.
+Go to models on the `Admin Panel dashboard`. Under models, add the names of the Olama models you want to use. You can view the list of Olama models here: https://ollama.com/library. (Example: `llama3.2`, `gemma2` etc.)
 
 ![](./open-webmodel.png)
 
