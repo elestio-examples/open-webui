@@ -14,7 +14,7 @@ if [[ $lshw_output == *nvidia* ]]; then
     sed -i 's/#          count: all/          count: all/g' ./docker-compose.yml
     sed -i 's/#          capabilities: \[gpu\]/          capabilities: \[gpu\]/g' ./docker-compose.yml
     
-    sed "s/^SOFTWARE_VERSION_TAG=.*/SOFTWARE_VERSION_TAG=cuda/" .env
+    sed -i "s~SOFTWARE_VERSION_TAG=latest~SOFTWARE_VERSION_TAG=cuda~g" ./.env
 else
     echo "Installing the CPU version..."
 fi
