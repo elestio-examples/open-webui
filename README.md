@@ -16,6 +16,9 @@ You can open Open WebUI Registry here:
     login: [ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
 
+## Recommended Minimum Plan:  
+At least 4 CPUs, 8 GB of RAM, and 50 GB of storage.
+
 ## About Software
 
 **Open WebUI** is an extensible, feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline. It supports various LLM runners, including Ollama and OpenAI-compatible APIs.
